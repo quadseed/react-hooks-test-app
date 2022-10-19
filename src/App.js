@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+import StatePage from "./components/pages/StatePage";
+import HomePage from "./components/pages/HomePage";
+import { EffectPage } from "./components/pages/EffectPage";
+import ContextPage from "./components/pages/ContextPage";
+import RefPage from "./components/pages/RefPage";
+import ReducerPage from "./components/pages/ReducerPage";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={`/state`} element={<StatePage />} />
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/effect" element={<EffectPage />} />
+        <Route path="/context" element={<ContextPage />} />
+        <Route path="/ref" element={<RefPage />} />
+        <Route path="/reducer" element={<ReducerPage />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
