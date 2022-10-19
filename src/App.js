@@ -9,8 +9,12 @@ import RefPage from "./components/pages/RefPage";
 import ReducerPage from "./components/pages/ReducerPage";
 
 const App = () => {
+
+  const baseName = (process.env.NODE_ENV === "build") ? process.env.REACT_APP_BASE_URL : ""
+
   return (
-    <BrowserRouter>
+    <BrowserRouter
+    basename={baseName}>
       <Routes>
         <Route path={`/state`} element={<StatePage />} />
         <Route path="/" element={<HomePage />}/>
